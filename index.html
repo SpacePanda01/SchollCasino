@@ -6,6 +6,31 @@
     <title>Casino Webseite</title>
 </head>
 <body>
-    <h1>Willkommen zu meiner Casino-Webseite</h1>
+    <h1>Willkommen in deinem Casino</h1>
+    <p>Hier kannst du dein Guthaben synchronisieren und spielen.</p>
+
+    <script type="module">
+        // Importiere Firebase-Funktionen
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
+
+        // Firebase-Konfiguration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD-6gFTxqwl8JBXS9y2dRT6xQxA0bBP5cU",
+            authDomain: "casino-be6a5.firebaseapp.com",
+            projectId: "casino-be6a5",
+            storageBucket: "casino-be6a5.firebasestorage.app",
+            messagingSenderId: "675284022108",
+            appId: "1:675284022108:web:6056d55ebd506eaeb08799",
+            measurementId: "G-Q97B7Q4BN3"
+        };
+
+        // Initialisiere Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        console.log("Firebase wurde erfolgreich initialisiert!");
+    </script>
 </body>
 </html>
+
