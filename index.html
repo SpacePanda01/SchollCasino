@@ -1,58 +1,36 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casino Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino</title>
+    <script src="firebase.js" defer></script>
+    <script src="userdata.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #login-section, #game-section {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>Willkommen bei deinem Casino</h1>
-
-  <!-- Registrierung Formular -->
-  <h2>Registrieren</h2>
-  <form id="registerForm">
-    <input type="email" id="registerEmail" placeholder="E-Mail" required>
-    <input type="password" id="registerPassword" placeholder="Passwort" required>
-    <button type="submit">Registrieren</button>
-  </form>
-
-  <!-- Login Formular -->
-  <h2>Einloggen</h2>
-  <form id="loginForm">
-    <input type="email" id="loginEmail" placeholder="E-Mail" required>
-    <input type="password" id="loginPassword" placeholder="Passwort" required>
-    <button type="submit">Einloggen</button>
-  </form>
-
-  <!-- Logout Button -->
-  <button id="logoutButton" style="display: none;">Abmelden</button>
-
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
-  <script src="firebase.js"></script>
-
-  <script>
-    // Registrierung und Login Logik hinzufügen
-    document.getElementById('registerForm').addEventListener('submit', (event) => {
-      event.preventDefault();
-      const email = document.getElementById('registerEmail').value;
-      const password = document.getElementById('registerPassword').value;
-      registerUser(email, password);
-    });
-
-    document.getElementById('loginForm').addEventListener('submit', (event) => {
-      event.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-      loginUser(email, password);
-    });
-
-    document.getElementById('logoutButton').addEventListener('click', () => {
-      logoutUser();
-    });
-  </script>
+    <h1>Casino Game</h1>
+    <div id="login-section">
+        <input type="password" id="password" placeholder="Enter your password" />
+        <button id="login-btn">Login</button>
+    </div>
+    <div id="game-section" style="display: none;">
+        <p>Welcome to the game!</p>
+        <p>Your balance: <span id="balance">Loading...</span></p>
+        <button id="play-game">Play Game</button>
+        <button id="logout-btn">Logout</button>
+    </div>
+</body>
+</html>
 
 </body>
 </html>
