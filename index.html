@@ -1,25 +1,58 @@
-<!-- Firebase SDK (für App und Analytics) -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino Website</title>
+</head>
+<body>
 
-<!-- Optional: Weitere Firebase-Dienste, die du benötigst -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <h1>Willkommen bei deinem Casino</h1>
 
-<script>
-  // Deine Firebase-Konfiguration
-  const firebaseConfig = {
-    apiKey: "AIzaSyD-6gFTxqwl8JBXS9y2dRT6xQxA0bBP5cU",
-    authDomain: "casino-be6a5.firebaseapp.com",
-    projectId: "casino-be6a5",
-    storageBucket: "casino-be6a5.firebasestorage.app",
-    messagingSenderId: "675284022108",
-    appId: "1:675284022108:web:45474ec2b37faa7cb08799",
-    measurementId: "G-K2ESKBG75Q"
-  };
+  <!-- Registrierung Formular -->
+  <h2>Registrieren</h2>
+  <form id="registerForm">
+    <input type="email" id="registerEmail" placeholder="E-Mail" required>
+    <input type="password" id="registerPassword" placeholder="Passwort" required>
+    <button type="submit">Registrieren</button>
+  </form>
 
-  // Firebase initialisieren
-  const app = firebase.initializeApp(firebaseConfig);
-  const analytics = firebase.analytics();
-</script>
+  <!-- Login Formular -->
+  <h2>Einloggen</h2>
+  <form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="E-Mail" required>
+    <input type="password" id="loginPassword" placeholder="Passwort" required>
+    <button type="submit">Einloggen</button>
+  </form>
 
+  <!-- Logout Button -->
+  <button id="logoutButton" style="display: none;">Abmelden</button>
+
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
+  <script src="firebase.js"></script>
+
+  <script>
+    // Registrierung und Login Logik hinzufügen
+    document.getElementById('registerForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      registerUser(email, password);
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      loginUser(email, password);
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', () => {
+      logoutUser();
+    });
+  </script>
+
+</body>
+</html>
